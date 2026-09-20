@@ -3,7 +3,7 @@ Summary(pl.UTF-8):	Biblioteka do odczytu obrazów JPEG XR
 Name:		jxrlib
 Version:	1.1
 %define	gitref	2019.10.9
-%define	rel	1
+%define	rel	2
 Release:	0.%{gitref}.%{rel}
 License:	BSD
 Group:		Libraries
