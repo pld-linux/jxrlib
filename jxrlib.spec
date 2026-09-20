@@ -51,7 +51,7 @@ cp -p %{SOURCE1} CMakeLists.txt
 	-e '/^libdir=/ s,/lib,/%{_lib},' \
 	-e 's,%%(JXR_VERSION)s,%{version},' \
 	-e 's,%%(JXR_ENDIAN)s,,' \
-	-e '/^Cflags: / s,: .*,: -I${includedir}/libjxr -D__ANSI__,' \
+	-e '/^Cflags: / s,: .*,: -I${includedir}/jxrlib -D__ANSI__,' \
 	libjxr.pc.in > libjxr.pc
 
 %build
@@ -80,14 +80,14 @@ rm -rf $RPM_BUILD_ROOT
 %doc LICENSE README.md doc/readme.txt
 %attr(755,root,root) %{_bindir}/JxrDecApp
 %attr(755,root,root) %{_bindir}/JxrEncApp
-%attr(755,root,root) %{_libdir}/libjpegxr.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libjpegxr.so.0
-%attr(755,root,root) %{_libdir}/libjxrglue.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libjxrglue.so.0
+%{_libdir}/libjpegxr.so.*.*.*
+%ghost %{_libdir}/libjpegxr.so.0
+%{_libdir}/libjxrglue.so.*.*.*
+%ghost %{_libdir}/libjxrglue.so.0
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libjpegxr.so
-%attr(755,root,root) %{_libdir}/libjxrglue.so
+%{_libdir}/libjpegxr.so
+%{_libdir}/libjxrglue.so
 %{_includedir}/jxrlib
 %{_pkgconfigdir}/libjxr.pc
