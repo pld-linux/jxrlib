@@ -12,6 +12,7 @@ Source0:	https://github.com/4creators/jxrlib/archive/v%{gitref}/%{name}-%{gitref
 # Source0-md5:	33d686fdf81e235cd8581c653dafffd6
 Source1:	%{name}-CMakeLists.txt
 Patch0:		%{name}-warnings.patch
+Patch1:		%{name}-no-windows.patch
 # originally https://jxrlib.codeplex.com/ but no longer available
 URL:		https://github.com/4creators/jxrlib
 BuildRequires:	cmake >= 2.8
@@ -43,6 +44,7 @@ Pliki nagłówkowe biblioteki JXR.
 %prep
 %setup -q -n %{name}-%{gitref}
 %patch -P0 -p1
+%patch -P1 -p1
 
 cp -p %{SOURCE1} CMakeLists.txt
 

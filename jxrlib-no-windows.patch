@@ -1,0 +1,21 @@
+Fix compiling library users with -DNO_WINDOWS
+--- jxrlib-2019.10.9/common/include/wmspecstring.h.orig	2017-06-15 19:20:48.000000000 +0200
++++ jxrlib-2019.10.9/common/include/wmspecstring.h	2026-09-20 13:05:35.670944201 +0200
+@@ -29,7 +29,7 @@
+ #ifndef _WMSPECSTRING_H_
+ #define _WMSPECSTRING_H_
+ 
+-#if (!defined UNDER_CE && !defined NO_WINDOWS && !defined SPECSTRINGS_H)
++#if (!defined UNDER_CE && !defined SPECSTRINGS_H)
+ #define SPECSTRINGS_H
+ /*************************************************************************
+ * See specstrings_strict.h for documentation of all user visible macros.
+@@ -334,7 +334,7 @@ void __pfx_assume(int, const char *);
+ 
+ // Some CE versions don't have specstrings.h, some have very old version without
+ // __specstrings defined. So we handle CE separately in wmasalce.h
+-#if defined(UNDER_CE) || defined(NO_WINDOWS)
++#if defined(UNDER_CE)
+   #include "wmspecstringce.h"
+ #endif
+ 
